@@ -37,13 +37,6 @@ public class UpdateVehicle extends javax.swing.JFrame {
             lstVehicleList.setSelectedIndex(0);
             changeVehicle();
         }
-
-        lstVehicleList.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                changeVehicle();
-            }
-        });
     }
 
     private void saveChanges() {
@@ -108,12 +101,17 @@ public class UpdateVehicle extends javax.swing.JFrame {
         rbtNotDamaged = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         rbtDamaged = new javax.swing.JRadioButton();
-        btnClose = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lstVehicleList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lstVehicleList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstVehicleListValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstVehicleList);
 
         lblAvailableCars.setText("Cars:");
@@ -162,10 +160,10 @@ public class UpdateVehicle extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setText("Close");
-        btnClose.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCloseActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -207,7 +205,7 @@ public class UpdateVehicle extends javax.swing.JFrame {
                                     .addComponent(jLabel3)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnClose)))))
+                                .addComponent(btnCancel)))))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -242,16 +240,16 @@ public class UpdateVehicle extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
-                    .addComponent(btnClose))
+                    .addComponent(btnCancel))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnCloseActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         saveChanges();
@@ -278,6 +276,10 @@ public class UpdateVehicle extends javax.swing.JFrame {
             rbtAvailable.setEnabled(true);
         }
     }//GEN-LAST:event_rbtNotForSaleActionPerformed
+
+    private void lstVehicleListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstVehicleListValueChanged
+        changeVehicle();
+    }//GEN-LAST:event_lstVehicleListValueChanged
 
     /**
      * @param args the command line arguments
@@ -316,7 +318,7 @@ public class UpdateVehicle extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup availability;
-    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup damaged;
     private javax.swing.ButtonGroup forSale;

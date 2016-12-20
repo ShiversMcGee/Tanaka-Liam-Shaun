@@ -134,16 +134,16 @@ public class MainMenu extends javax.swing.JFrame implements IObserver {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRentVehicleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentVehicleActionPerformed
-        //for (Window test : RentCar.getWindows())
+        //for (Window test : RentVehicle.getWindows())
         //{
-            //if(test.class == RentCar())
+            //if(test.class == RentVehicle())
             //{
                 
             //}
             //test.dispose();
         //}
         
-        RentCar rc = new RentCar();
+        RentVehicle rc = new RentVehicle();
         rc.setVisible(true);
     }//GEN-LAST:event_btnRentVehicleActionPerformed
 
